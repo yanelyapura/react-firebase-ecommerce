@@ -21,7 +21,7 @@ export const ItemListContainer = (props) => {
 
     getDocs(filteredQuery).then((snapshot) => {
       if (snapshot.size === 0) {
-        console.log("NO SE ENCONTRÓ NADA LOCO...");
+        console.warn("No se encontraron productos");
       }
       setProducts(
         snapshot.docs.map((doc) => ({

@@ -25,7 +25,7 @@ export const ItemDetailContainer = () => {
                     title: itemData.title,
                 });
             } else {
-                console.log("No se encontró el elemento");
+                console.warn("No se encontró el elemento");
             }
         }).catch((error) => {
             console.error("Error obteniendo el documento:", error);

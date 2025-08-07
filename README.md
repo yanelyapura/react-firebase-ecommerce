@@ -38,3 +38,42 @@ Tienda Yapu es una aplicación de e-commerce desarrollada con React JS y Firebas
 - `package.json`: Define las dependencias y scripts del proyecto.
 
 Esta estructura proporciona una organización clara y modular del código, facilitando su mantenimiento y expansión.
+---
+
+## ⚙️ Configuración rápida
+
+1. Clona e instala dependencias:
+```bash
+npm install
+```
+2. Crea un archivo `.env` en la raíz con tus credenciales de Firebase (ver `.env.example`):
+```bash
+cp .env.example .env
+# completa los valores VITE_ de Firebase
+```
+3. Ejecuta en desarrollo:
+```bash
+npm run dev
+```
+4. Build de producción y previsualización:
+```bash
+npm run build
+npm run preview
+```
+
+### Variables de entorno (Vite)
+Las variables deben comenzar con `VITE_`.
+Revisa y copia desde `.env.example`:
+```
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_FIREBASE_MEASUREMENT_ID= # opcional
+```
+
+### Notas de Firebase
+- Colección esperada: `items` con campos `title, description, price, stock, pictureUrl, category`.
+- Las órdenes se guardan en Firestore en el checkout.
