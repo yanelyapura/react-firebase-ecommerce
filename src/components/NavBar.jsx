@@ -8,16 +8,13 @@ import { CartWidget } from "./CartWidget";
 
 export const NavBar = () => { 
     return (  
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand >
-            <NavLink to="/">Home</NavLink>
-            </Navbar.Brand>
+          <Navbar.Brand as={NavLink} to="/">Tienda Yanu</Navbar.Brand>
           <Nav className="me-auto">
-            <NavLink to="category/celulares">Celulares</NavLink>
-            <NavLink to="category/monitor">Monitor</NavLink>
-            <NavLink to="category/tablet">Tablet</NavLink>
-        
+            <Nav.Link as={NavLink} to="/category/celulares">Celulares</Nav.Link>
+            <Nav.Link as={NavLink} to="/category/monitor">Monitores</Nav.Link>
+            <Nav.Link as={NavLink} to="/category/tablet">Tablets</Nav.Link>
           </Nav>
           <CartWidget />
         </Container>

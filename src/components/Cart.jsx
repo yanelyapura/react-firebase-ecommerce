@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { Form, Button, Table, Image } from 'react-bootstrap';
 import '../styles/Cart.css';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart } = useCart();
@@ -43,14 +43,15 @@ const Cart = () => {
         quantity: item.quantity,
         title: item.title,
       })),
+      createdAt: serverTimestamp(),
     };
 
     try {
       const db = getFirestore();
       const ordersCollection = collection(db, 'orders');
-      await addDoc(ordersCollection, orderData);
+      const docRef = await addDoc(ordersCollection, orderData);
       clearCart();
-      alert('La orden se ha enviado correctamente.');
+      alert('Orden enviada. ID: ' + docRef.id);
     } catch (error) {
       console.error('Error al enviar la orden:', error);
       alert('Hubo un error al enviar la orden. Inténtalo nuevamente más tarde.');
